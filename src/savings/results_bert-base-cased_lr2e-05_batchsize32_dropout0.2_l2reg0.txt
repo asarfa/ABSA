@@ -1,0 +1,119 @@
+RUN: 1
+  1.1. Training the classifier...
+Downloading (…)okenizer_config.json: 100%
+29.0/29.0 [00:00<00:00, 1.02kB/s]
+Downloading (…)lve/main/config.json: 100%
+570/570 [00:00<00:00, 20.6kB/s]
+Downloading (…)solve/main/vocab.txt: 100%
+213k/213k [00:00<00:00, 2.85MB/s]
+Downloading (…)/main/tokenizer.json: 100%
+436k/436k [00:00<00:00, 5.37MB/s]
+Downloading pytorch_model.bin: 100%
+436M/436M [00:03<00:00, 130MB/s]
+Some weights of the model checkpoint at bert-base-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+********************************* Training of bert-base-cased_lr2e-05_batchsize32_dropout0.2_l2reg0.1 *********************************
+Epoch [1] took 32.15s | train_loss: 0.6458, train_acc: 0.7446, val_loss: 0.4956, val_acc: 0.8064, val_f1: 0.5259
+Epoch [2] took 46.87s | train_loss: 0.3697, train_acc: 0.8743, val_loss: 0.4401, val_acc: 0.8255, val_f1: 0.5403
+Epoch [3] took 30.36s | train_loss: 0.2729, train_acc: 0.9135, val_loss: 0.4682, val_acc: 0.8394, val_f1: 0.5468
+Epoch [4] took 24.70s | train_loss: 0.2101, train_acc: 0.9328, val_loss: 0.5193, val_acc: 0.8212, val_f1: 0.5303
+Epoch [5] took 24.07s | train_loss: 0.1830, train_acc: 0.9448, val_loss: 0.5371, val_acc: 0.8394, val_f1: 0.5454
+Epoch [6] took 24.20s | train_loss: 0.1631, train_acc: 0.9455, val_loss: 0.5336, val_acc: 0.8394, val_f1: 0.5480
+Epoch [7] took 24.26s | train_loss: 0.1426, train_acc: 0.9468, val_loss: 0.5793, val_acc: 0.8307, val_f1: 0.5349
+At last epoch 8, the early stopping tolerance = 5 has been reached, the acc of validation is not increasing anymore -> stop it
+
+  1.2. Eval on the dev set...The testing loss is 0.5049470068708538, the testing acc is 0.8404255319148937
+ Acc.: 84.04
+
+
+RUN: 2
+  2.1. Training the classifier...
+Some weights of the model checkpoint at bert-base-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+********************************* Training of bert-base-cased_lr2e-05_batchsize32_dropout0.2_l2reg0.1 *********************************
+Epoch [1] took 29.99s | train_loss: 0.7883, train_acc: 0.6740, val_loss: 0.6539, val_acc: 0.7561, val_f1: 0.4451
+Epoch [2] took 30.22s | train_loss: 0.4859, train_acc: 0.8257, val_loss: 0.4822, val_acc: 0.8229, val_f1: 0.5427
+Epoch [3] took 29.44s | train_loss: 0.3498, train_acc: 0.8949, val_loss: 0.4516, val_acc: 0.8446, val_f1: 0.5486
+Epoch [4] took 24.67s | train_loss: 0.2626, train_acc: 0.9155, val_loss: 0.5036, val_acc: 0.8403, val_f1: 0.5384
+Epoch [5] took 24.56s | train_loss: 0.2080, train_acc: 0.9248, val_loss: 0.5329, val_acc: 0.8151, val_f1: 0.5343
+Epoch [6] took 24.26s | train_loss: 0.1569, train_acc: 0.9428, val_loss: 0.5109, val_acc: 0.8411, val_f1: 0.6095
+Epoch [7] took 29.11s | train_loss: 0.1175, train_acc: 0.9614, val_loss: 0.6149, val_acc: 0.8481, val_f1: 0.6123
+Epoch [8] took 24.53s | train_loss: 0.0950, train_acc: 0.9661, val_loss: 0.6347, val_acc: 0.8472, val_f1: 0.6174
+Epoch [9] took 24.54s | train_loss: 0.0767, train_acc: 0.9734, val_loss: 0.6559, val_acc: 0.8420, val_f1: 0.6066
+Epoch [10] took 24.16s | train_loss: 0.0534, train_acc: 0.9787, val_loss: 0.7913, val_acc: 0.8359, val_f1: 0.6039
+Epoch [11] took 24.16s | train_loss: 0.0427, train_acc: 0.9814, val_loss: 0.7974, val_acc: 0.8385, val_f1: 0.6281
+At last epoch 12, the early stopping tolerance = 5 has been reached, the acc of validation is not increasing anymore -> stop it
+
+  2.2. Eval on the dev set...The testing loss is 0.6196808393594457, the testing acc is 0.8457446808510638
+ Acc.: 84.57
+
+
+RUN: 3
+  3.1. Training the classifier...
+Some weights of the model checkpoint at bert-base-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+********************************* Training of bert-base-cased_lr2e-05_batchsize32_dropout0.2_l2reg0.1 *********************************
+Epoch [1] took 29.79s | train_loss: 0.7779, train_acc: 0.6348, val_loss: 0.6417, val_acc: 0.7092, val_f1: 0.2914
+Epoch [2] took 29.56s | train_loss: 0.5133, train_acc: 0.8038, val_loss: 0.4260, val_acc: 0.8655, val_f1: 0.5692
+Epoch [3] took 24.46s | train_loss: 0.3201, train_acc: 0.8882, val_loss: 0.4385, val_acc: 0.8524, val_f1: 0.5555
+Epoch [4] took 24.49s | train_loss: 0.2376, train_acc: 0.9262, val_loss: 0.4473, val_acc: 0.8377, val_f1: 0.5457
+Epoch [5] took 24.30s | train_loss: 0.1797, train_acc: 0.9375, val_loss: 0.5175, val_acc: 0.8385, val_f1: 0.5654
+Epoch [6] took 24.18s | train_loss: 0.1309, train_acc: 0.9547, val_loss: 0.5810, val_acc: 0.8429, val_f1: 0.6008
+At last epoch 7, the early stopping tolerance = 5 has been reached, the acc of validation is not increasing anymore -> stop it
+
+  3.2. Eval on the dev set...The testing loss is 0.4260774660617747, the testing acc is 0.8643617021276596
+ Acc.: 86.44
+
+
+RUN: 4
+  4.1. Training the classifier...
+Some weights of the model checkpoint at bert-base-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+********************************* Training of bert-base-cased_lr2e-05_batchsize32_dropout0.2_l2reg0.1 *********************************
+Epoch [1] took 29.49s | train_loss: 0.7140, train_acc: 0.6900, val_loss: 0.4565, val_acc: 0.8464, val_f1: 0.5520
+Epoch [2] took 24.84s | train_loss: 0.3967, train_acc: 0.8610, val_loss: 0.4349, val_acc: 0.8429, val_f1: 0.5475
+Epoch [3] took 24.37s | train_loss: 0.2907, train_acc: 0.9088, val_loss: 0.4858, val_acc: 0.8194, val_f1: 0.5369
+Epoch [4] took 24.17s | train_loss: 0.2353, train_acc: 0.9222, val_loss: 0.5482, val_acc: 0.8403, val_f1: 0.5462
+Epoch [5] took 24.36s | train_loss: 0.1831, train_acc: 0.9348, val_loss: 0.5455, val_acc: 0.8385, val_f1: 0.6031
+At last epoch 6, the early stopping tolerance = 5 has been reached, the acc of validation is not increasing anymore -> stop it
+
+  4.2. Eval on the dev set...The testing loss is 0.4551617768097748, the testing acc is 0.8457446808510638
+ Acc.: 84.57
+
+
+RUN: 5
+  5.1. Training the classifier...
+Some weights of the model checkpoint at bert-base-cased were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+********************************* Training of bert-base-cased_lr2e-05_batchsize32_dropout0.2_l2reg0.1 *********************************
+Epoch [1] took 29.37s | train_loss: 0.7751, train_acc: 0.6720, val_loss: 0.6753, val_acc: 0.7031, val_f1: 0.2747
+Epoch [2] took 30.05s | train_loss: 0.5469, train_acc: 0.7911, val_loss: 0.4555, val_acc: 0.8220, val_f1: 0.5279
+Epoch [3] took 29.28s | train_loss: 0.3543, train_acc: 0.8829, val_loss: 0.4499, val_acc: 0.8325, val_f1: 0.5374
+Epoch [4] took 24.76s | train_loss: 0.2727, train_acc: 0.9108, val_loss: 0.4742, val_acc: 0.8281, val_f1: 0.5372
+Epoch [5] took 29.51s | train_loss: 0.2188, train_acc: 0.9235, val_loss: 0.4910, val_acc: 0.8333, val_f1: 0.5465
+Epoch [6] took 24.49s | train_loss: 0.1648, train_acc: 0.9395, val_loss: 0.5504, val_acc: 0.8203, val_f1: 0.5522
+Epoch [7] took 29.62s | train_loss: 0.1271, train_acc: 0.9521, val_loss: 0.6458, val_acc: 0.8359, val_f1: 0.5917
+Epoch [8] took 29.56s | train_loss: 0.1014, train_acc: 0.9620, val_loss: 0.6441, val_acc: 0.8420, val_f1: 0.6188
+Epoch [9] took 24.70s | train_loss: 0.0782, train_acc: 0.9674, val_loss: 0.7077, val_acc: 0.8307, val_f1: 0.6179
+Epoch [10] took 24.49s | train_loss: 0.0711, train_acc: 0.9707, val_loss: 0.7743, val_acc: 0.8307, val_f1: 0.5954
+Epoch [11] took 24.27s | train_loss: 0.0560, train_acc: 0.9747, val_loss: 0.8368, val_acc: 0.8229, val_f1: 0.5615
+Epoch [12] took 24.25s | train_loss: 0.0538, train_acc: 0.9781, val_loss: 0.8272, val_acc: 0.8281, val_f1: 0.5591
+At last epoch 13, the early stopping tolerance = 5 has been reached, the acc of validation is not increasing anymore -> stop it
+
+  5.2. Eval on the dev set...The testing loss is 0.6485613268997305, the testing acc is 0.8404255319148937
+ Acc.: 84.04
+
+
+Completed 5 runs.
+Dev accs: [84.04, 84.57, 86.44, 84.57, 84.04]
+Test accs: [-1, -1, -1, -1, -1]
+
+Mean Dev Acc.: 84.73 (0.89)
+Mean Test Acc.: -1.00 (0.00)
+
+Exec time: 1315.23 s. ( 263 per run )
