@@ -78,7 +78,7 @@ The experiment was runned on the default Colab GPU.
 
 ## Results
 
-The hyperparamters leading to the maximum accuracy on the dev dataset are {'lr': 2e-05, 'l2reg': 0.1, 'dropout': 0.2, 'batch_size': 32, 'epoch': 14} allowing to attain 0.861 with the random seed 42.
+The hyperparamters leading to the maximum accuracy on the dev dataset are {'lr': 2e-05, 'l2reg': 0.1, 'dropout': 0.2, 'batch_size': 32, 'epoch': 14} allowing to achieve 0.861 with the random seed 42.
 
 By unsetting the seed, using the best hyper-parameters and runing 5 times, we get these results:
 
