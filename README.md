@@ -46,7 +46,7 @@ The dataset contains sentences belonging to different aspect categories. The wei
 To solve this task we used pre-trained language model based on Attention mechanism, which enforce the model to pay
 more attention to context words with closer semantic relations with the target.
 
-The the dataset has been processed by cleaning the text and encoding the labels ('positive'=2, 'neutral'=1, 'negative'=0).
+The dataset has been processed by cleaning the text and encoding the labels ('positive'=2, 'neutral'=1, 'negative'=0).
 
 ### Embedding Layer
 
