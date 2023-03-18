@@ -1,7 +1,8 @@
 from typing import List
 import torch
 from data import myDataset
-from models import ABSATokenizer, ABSAClassifier
+from tokenizer import ABSATokenizer
+from models import ABSAClassifier
 from tuning import ABSATuning
 import pickle
 import os
@@ -13,9 +14,9 @@ class Classifier:
     __init__() function) and the 2 methods train() and predict() below. Please donot change
      """
     def __init__(self):
-        self.inner_model: ABSAClassifier = None
         self.name_model: str = None
         self.tokenizer: str = None
+        self.inner_model: ABSAClassifier = None
 
     ############################################# comp
     def train(self, train_filename: str, dev_filename: str, device: torch.device):

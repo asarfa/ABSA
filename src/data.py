@@ -3,22 +3,31 @@ from torch.utils.data import Dataset, DataLoader, random_split
 import pandas as pd
 from utils import process_data
 from analysis import AnalysisData
+from tokenizer import ABSATokenizer
 
 
 class ABSADataset(Dataset):
-    def __init__(self, data, tokenizer):
+    def __init__(self, data: pd.DataFrame, tokenizer: ABSATokenizer):
         self.labels = torch.tensor(data['label'].to_list())
         input_ids, token_type_ids = [], []
         for i in range(len(data)):
             sentence_ids = tokenizer.text_to_ids(data['clean_sentence'].iloc[i])
             aspect_ids = tokenizer.text_to_ids(data['clean_target_term'].iloc[i])
-            input_ids.append([101]+sentence_ids+[102]+aspect_ids+[102])
+            input_ids.append([101]+sentence_ids+[102]+aspect_ids+[102]) #101='CLS', 102='SEP'
             token_type_ids.append([0] * (len(sentence_ids) + 2) + [1] * (len(aspect_ids) + 1))
         self.max_seq_len = max([len(ids) for ids in input_ids])
         input_ids, attention_mask = tokenizer.pad_trunc(input_ids, self.max_seq_len, attention=True)
         self.input_ids = torch.tensor(input_ids)
         self.attention_mask = torch.tensor(attention_mask)
         self.token_type_ids = torch.tensor(tokenizer.pad_trunc(token_type_ids, self.max_seq_len))
+        """
+        #verification
+        data = tokenizer(data['clean_sentence'].to_list(), data['clean_target_term'].to_list(), return_tensors='pt',
+                            max_length=self.max_seq_len, padding=True, truncation=True).data
+        assert (torch.equal(self.input_ids, data['input_ids']))
+        assert (torch.equal(self.attention_mask, data['attention_mask']))
+        assert (torch.equal(self.token_type_ids, data['token_type_ids']))
+        """
         self.category = torch.tensor(pd.get_dummies(data['aspect_category']).values)
 
     def __len__(self):
@@ -33,7 +42,7 @@ class myDataset:
     This class allows to create the datasets for both training and validation
     """
 
-    def __init__(self, tokenizer, train_filename: str = None, dev_filename: str = None, verbose: bool = False):
+    def __init__(self, tokenizer: ABSATokenizer, train_filename: str = None, dev_filename: str = None, verbose: bool = False):
         self.set(tokenizer, train_filename, dev_filename, verbose)
 
     def get_dataset(self, tokenizer, filename, verbose):

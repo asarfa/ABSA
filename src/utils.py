@@ -45,7 +45,6 @@ def text_preprocessing(text):
     tokenizer = nltk.tokenize.RegexpTokenizer(r'\w+')
     nopunc = clean_text(text)
     tokenized_text = tokenizer.tokenize(nopunc)
-    # remove_stopwords = [w for w in tokenized_text if w not in stopwords.words('english')]
     combined_text = ' '.join(tokenized_text)
     return combined_text
 
