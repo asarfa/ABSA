@@ -1,5 +1,7 @@
 # Aspect Based Sentiment Analysis
 
+## Alban Sarfati, Kenz Bensmaine, and Salah Azekour
+
 
 Aspect based sentiment analysis is a type of sentiment analysis that involves identifying the sentiment polarities (negative, neutral, or positive) of a sentence towards specific "opinion targets" mentioned within it.
 
